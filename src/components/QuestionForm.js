@@ -1,4 +1,3 @@
-import { StraightenSharp } from "@mui/icons-material";
 import React, { useState } from "react";
 
 function QuestionForm(props) {

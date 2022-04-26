@@ -14,7 +14,8 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "mocha": "^8.2.1",
-    "msw": "^0.24.2"
+    "msw": "^0.24.2",
+    "react-error-overlay": "^6.0.9"
   },
   "scripts": {
     "start": "react-scripts start",
