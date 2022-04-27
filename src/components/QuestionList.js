@@ -23,11 +23,30 @@ function QuestionList() {
       })
   }
 
+  function handleAnswer(id, correctIndex) {
+    fetch(`http://localhost:4000/questions/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ correctIndex }),
+    })
+      .then((r) => r.json())
+      .then((updatedQuestion) => {
+        const updatedQuestions = questions.map((q) => {
+          if (q.id === updatedQuestion.id) return updatedQuestion;
+          return q;
+        });
+        setQuestions(updatedQuestions);
+      });
+  }
+
   const questionItems = questions.map((question) => (
     <QuestionItem
       key={question.id}
       question={question}
       onDeleteClick={handleDelete}
+      onCorrectAnswer={handleAnswer}
     />
   ))
 
